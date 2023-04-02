@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+	<arg name="node_start_delay" default="10.0" />
+	<node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+	
+	<node pkg="turtlesim_task" type="random_RT.py" name="turtlebot_Random_RT" output="screen">
+
+	</node>
+
+	<node pkg="turtlesim_task" type="circle_chase.py" name="turtlebot_PT" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " output="screen"/>
+</launch>

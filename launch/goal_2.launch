@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="radius" default="2"/>
+	<arg name="velocity" default="3"/>
+	<node pkg="turtlesim" type="turtlesim_node" name="turtle"/>
+	
+	<node pkg="turtlesim_task" type="goal_2.py" name="turtlebot_RT" output="screen">
+		<param name="r" value="$(arg radius)" />
+		<param name="v" value="$(arg velocity)"/>
+
+	</node>
+
+	<node pkg="turtlesim_task" type="circle_follow.py" name="turtlebot_follow" output="screen"/>
+</launch>
